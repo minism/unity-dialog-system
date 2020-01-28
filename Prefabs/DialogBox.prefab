@@ -63,8 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is an example dialog that would span multiple pages. It should also
-    render the text banana in yellow.
+  m_text: Dialog text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0d69d9137b529d4b8a7f8605ae529f5, type: 2}
   m_sharedMaterial: {fileID: -1133446192388448000, guid: e0d69d9137b529d4b8a7f8605ae529f5,

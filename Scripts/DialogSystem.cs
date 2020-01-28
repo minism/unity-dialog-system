@@ -20,6 +20,10 @@ namespace DialogSystem {
     private bool waitingForAdvanceInput;
     private bool pendingAdvanceInput;
 
+    private void Awake() {
+      dialogBox.gameObject.SetActive(false);
+    }
+
     private void Update() {
       if (waitingForAdvanceInput && Input.GetButton(advanceButtonName)) {
         pendingAdvanceInput = true;
