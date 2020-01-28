@@ -1,0 +1,18 @@
+Dialog system features
+
+x Textmesh pro
+x Character by character printing
+x Sound per character
+x Dictionary of auto-colored words.
+x Precomputed positions (fixed width fonts) to avoid wrapping mid-word.
+- List of pages, pages are auto split
+- Dialog system settings, and then per-dialog settings
+- Call via scripting API or assets
+- ShowDialog(String), ShowDialog(IEnumerable<String>), ShowDialog(Page), ShowDialog(IEnumerable<Page>)
+    - Other params: Position, settings
+- Hint sizing
+
+- Modes:
+  - Instantaneous
+  - Character by character, advancable
+  - Character by character, non-advancable

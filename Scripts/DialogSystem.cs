@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using System.Text;
 using UnityEngine;
 
@@ -8,18 +8,19 @@ namespace DialogSystem {
   public class DialogSystem : MonoBehaviour {
     public DialogSettings baseSettings;
 
-    [Tooltip("Words which are always displayed with a given color.")]
-    public Dictionary<string, Color> colorDictionary;
-
     [Header("Dialog object references")]
     public DialogBox dialogBox;
     public AudioSource printAudioSource;
 
     public void ShowDialog(string text) {
+      if (text.Length < 1) {
+        Debug.LogWarning("DialogSystem: Ignoring empty text for ShowDialog()");
+        return;
+      }
       StartCoroutine(DialogRoutine(text));
     }
 
-    private IEnumerator DialogRoutine(string text) {
+    private IEnumerator DialogRoutine(string fullText) {
       // TODO: Support per-dialog settings.
       var settings = baseSettings;
 
@@ -27,18 +28,31 @@ namespace DialogSystem {
       dialogBox.gameObject.SetActive(true);
       dialogBox.SetBackgroundColor(settings.backgroundColor);
 
-      // Character loop.
-      var builder = new StringBuilder();
-      for (int i = 0; i < text.Length; i++) {
-        var character = text[i];
-        builder.Append(character);
-        dialogBox.SetText(builder.ToString());
-        if (!char.IsWhiteSpace(character) && settings.printSound != null) {
+      // Apply any preprocessing to the text.
+      fullText = TextUtil.PreprocessText(fullText, settings);
+
+      // Break the page into visible chunks.
+      var chunks = dialogBox.PrepareChunks(fullText);
+      foreach (var chunkText in chunks) {
+        yield return CharacterRevealRoutine(chunkText, settings);
+      }
+
+      dialogBox.gameObject.SetActive(false);
+    }
+
+    private IEnumerator CharacterRevealRoutine(string chunkText, DialogSettings settings) {
+      // Setup the chunk and wait until TMP processes it.
+      yield return dialogBox.LoadChunkAsync(chunkText);
+
+      // Progressively reveal characters.
+      Debug.Log("Revealing");
+      Tuple<char, bool> result;
+      while (!(result = dialogBox.RevealCharacter()).Item2) {
+        if (!char.IsWhiteSpace(result.Item1) && settings.printSound != null) {
           printAudioSource.PlayOneShot(settings.printSound);
         }
         yield return new WaitForSeconds(baseSettings.dialogSpeed);
       }
-      dialogBox.gameObject.SetActive(false);
     }
   }
 

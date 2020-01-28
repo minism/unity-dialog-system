@@ -1,6 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace DialogSystem {
+
+  [System.Serializable]
+  public struct ColorEntry {
+    public string text;
+    public Color color;
+  }
 
   [System.Serializable]
   public class DialogSettings {
@@ -15,6 +22,9 @@ namespace DialogSystem {
 
     [Tooltip("Whether the character print sound should play for whitespace.")]
     public bool soundOnWhitespace = false;
+
+    [Tooltip("Words which are always displayed with a given color.")]
+    public ColorEntry[] colorDictionary;
   }
 
 }
