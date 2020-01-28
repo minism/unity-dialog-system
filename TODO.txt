@@ -1,6 +1,5 @@
 - Per-dialog settings
 - Call via scripting API or assets
-- ShowDialog(String), ShowDialog(IEnumerable<String>), ShowDialog(Page), ShowDialog(IEnumerable<Page>)
     - Other params: Position, settings
 
 - Modes:

@@ -30,19 +30,20 @@ namespace DialogSystem {
       ShowDialog(new string[] { text });
     }
 
-    public void ShowDialog(IList<string> pages) {
+    public void ShowDialog(IList<string> pages, DialogSettings settings = null) {
+      if (settings == null) {
+        settings = baseSettings;
+      }
       if (pages.Count < 1 || pages[0].Length < 1) {
         Debug.LogWarning("DialogSystem: Ignoring empty text for ShowDialog()");
         return;
       }
-      StartCoroutine(DialogRoutine(pages));
+      StartCoroutine(DialogRoutine(pages, settings));
     }
 
-    private IEnumerator DialogRoutine(IList<string> pages) {
+    private IEnumerator DialogRoutine(IList<string> pages, DialogSettings settings) {
+      // Apply visual settings to the dialog box.
       dialogBox.gameObject.SetActive(true);
-
-      // TODO: Support per-dialog settings.
-      var settings = baseSettings;
       dialogBox.ApplySettings(settings);
 
       // Apply any preprocessing to the text.
@@ -74,8 +75,10 @@ namespace DialogSystem {
       // Progressively reveal characters.
       Tuple<char, bool> result;
       while (!(result = dialogBox.Advance()).Item2) {
-        if (!char.IsWhiteSpace(result.Item1) && settings.printSound != null) {
-          audioSource.PlayOneShot(settings.printSound);
+        if (settings.printSound != null) {
+          if (settings.soundOnWhitespace || !char.IsWhiteSpace(result.Item1)) {
+            audioSource.PlayOneShot(settings.printSound);
+          }
         }
         yield return new WaitForSeconds(baseSettings.dialogSpeed);
       }
