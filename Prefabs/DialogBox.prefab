@@ -66,8 +66,8 @@ MonoBehaviour:
   m_text: This is an example dialog that would span multiple pages. It should also
     render the text banana in yellow.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c745e7103d54d154eb1891a12342ea28, type: 2}
-  m_sharedMaterial: {fileID: -4370243705315149407, guid: c745e7103d54d154eb1891a12342ea28,
+  m_fontAsset: {fileID: 11400000, guid: e0d69d9137b529d4b8a7f8605ae529f5, type: 2}
+  m_sharedMaterial: {fileID: -1133446192388448000, guid: e0d69d9137b529d4b8a7f8605ae529f5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 31.6
+  m_fontSizeBase: 31.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 5
-  m_firstOverflowCharacterIndex: 58
+  m_firstOverflowCharacterIndex: 19
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
     spaceCount: 18
     wordCount: 19
     linkCount: 0
-    lineCount: 6
-    pageCount: 2
+    lineCount: 5
+    pageCount: 5
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

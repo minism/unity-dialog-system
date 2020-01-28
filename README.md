@@ -1,2 +1,11 @@
-﻿Ok, I got it now. On the font asset creator I increased the padding from 5 to 10, the atlas resolution from 512x512 to 4096x4096 and changed the rendering mode from hinted smooth to raster hinted. The text looks great on all resolutions, unless I resize the window while the game is running, but I guess that's the way it is. I may have exaggerated on the numbers (like 4096x4096 resolution), but at least I know it works, I can try lower numbers later.
+﻿## Pixel-perfect text setup
 
+This is still hard to do reliably.
+
+Use TMP FontAssetCreator with these settings:
+  - Padding: 10
+  - Atlas resolution: 4096x4096
+  - Render mode: RASTER_HINTED
+
+Then, adjust the font size of the Dialog Box prefab until it looks pixel-perfect on the game view.
+I've had success with values near 32.
