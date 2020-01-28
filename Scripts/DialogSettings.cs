@@ -11,7 +11,7 @@ namespace DialogSystem {
     public AudioClip printSound;
 
     [Tooltip("The dialog speed in characters per second.")]
-    public float dialogSpeed = 0.25f;
+    public float dialogSpeed = 0.1f;
 
     [Tooltip("Whether the character print sound should play for whitespace.")]
     public bool soundOnWhitespace = false;
