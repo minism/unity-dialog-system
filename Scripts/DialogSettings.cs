@@ -17,6 +17,9 @@ namespace DialogSystem {
     [Tooltip("9-sliced frame image to use for the dialog.")]
     public Sprite frameSprite;
 
+    [Tooltip("Whether to show the dialog frame.")]
+    public bool showFrame = true;
+
     [Tooltip("The sound effect to play when printing a character.")]
     public AudioClip printSound;
 

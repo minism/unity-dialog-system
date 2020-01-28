@@ -16,18 +16,22 @@ namespace DialogSystem {
     public DialogBox dialogBox;
     public AudioSource audioSource;
 
-    // Advance page input state.
-    private bool waitingForAdvanceInput;
-    private bool pendingAdvanceInput;
+    public bool IsDialogActive {
+      get {
+        return state != State.OFF;
+      }
+    }
+
+    // Dialog state.
+    private enum State {
+      OFF,
+      ON,
+      WAITING_FOR_INPUT,
+    }
+    private State state = State.OFF;
 
     private void Awake() {
       dialogBox.gameObject.SetActive(false);
-    }
-
-    private void Update() {
-      if (waitingForAdvanceInput && Input.GetButton(advanceButtonName)) {
-        pendingAdvanceInput = true;
-      }
     }
 
     public void ShowDialog(string text) {
@@ -38,6 +42,10 @@ namespace DialogSystem {
       if (settings == null) {
         settings = baseSettings;
       }
+      if (state != State.OFF) {
+        Debug.LogWarning("Dialog already active, ignoring (Did you forget to check IsDialogActive?).");
+        return;
+      }
       if (pages.Count < 1 || pages[0].Length < 1) {
         Debug.LogWarning("DialogSystem: Ignoring empty text for ShowDialog()");
         return;
@@ -46,8 +54,10 @@ namespace DialogSystem {
     }
 
     private IEnumerator DialogRoutine(IList<string> pages, DialogSettings settings) {
-      // Apply visual settings to the dialog box.
+      state = State.ON;
       dialogBox.gameObject.SetActive(true);
+
+      // Apply visual settings to the dialog box.
       dialogBox.ApplySettings(settings);
 
       // Apply any preprocessing to the text.
@@ -60,9 +70,9 @@ namespace DialogSystem {
 
         // Wait until we've consumed an input to advance the page.
         dialogBox.ShowNextCursor();
-        waitingForAdvanceInput = true;
-        yield return new WaitUntil(() => pendingAdvanceInput);
-        waitingForAdvanceInput = pendingAdvanceInput = false;
+        state = State.WAITING_FOR_INPUT;
+        yield return new WaitUntil(() => Input.GetButton(advanceButtonName));
+        state = State.ON;
 
         if (settings.confirmSound != null) {
           audioSource.PlayOneShot(settings.confirmSound);
@@ -70,6 +80,7 @@ namespace DialogSystem {
       }
 
       dialogBox.gameObject.SetActive(false);
+      state = State.OFF;
     }
 
     private IEnumerator PageRoutine(string pageText, DialogSettings settings) {

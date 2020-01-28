@@ -15,8 +15,13 @@ namespace DialogSystem {
 
     public void ApplySettings(DialogSettings settings) {
       background.color = settings.backgroundColor;
-      frame.sprite = settings.frameSprite;
       nextCursor.blinkSpeed = settings.cursorBlinkSpeed;
+      if (settings.showFrame) {
+        frame.gameObject.SetActive(true);
+        frame.sprite = settings.frameSprite;
+      } else {
+        frame.gameObject.SetActive(false);
+      }
     }
 
     public void ShowNextCursor() {
