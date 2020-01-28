@@ -14,11 +14,20 @@ namespace DialogSystem {
     [Tooltip("Background color for the dialog.")]
     public Color backgroundColor = new Color(0.3f, 0.3f, 0.8f);
 
-    [Tooltip("The sound effect to play when printing a character")]
+    [Tooltip("9-sliced frame image to use for the dialog.")]
+    public Sprite frameSprite;
+
+    [Tooltip("The sound effect to play when printing a character.")]
     public AudioClip printSound;
+
+    [Tooltip("The sound effect to play when confirming or advancing the dialog.")]
+    public AudioClip confirmSound;
 
     [Tooltip("The dialog speed in characters per second.")]
     public float dialogSpeed = 0.1f;
+
+    [Tooltip("The speed at which the next cursor blinks, in seconds.")]
+    public float cursorBlinkSpeed = 0.5f;
 
     [Tooltip("Whether the character print sound should play for whitespace.")]
     public bool soundOnWhitespace = false;

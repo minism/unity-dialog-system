@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ExampleController : MonoBehaviour {
   [TextArea]
-  public string exampleText;
+  public string[] pages;
 
   private void Start() {
-    FindObjectOfType<DialogSystem.DialogSystem>().ShowDialog(exampleText);
+    FindObjectOfType<DialogSystem.DialogSystem>().ShowDialog(pages);
   }
 }

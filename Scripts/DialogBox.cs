@@ -6,13 +6,25 @@ namespace DialogSystem {
 
   public class DialogBox : MonoBehaviour {
     public TMPro.TMP_Text textMesh;
+    public UnityEngine.UI.Image frame;
     public UnityEngine.UI.Image background;
+    public Blink nextCursor;
 
     private string parsedPageText;
     private TMPro.TMP_TextInfo textInfo;
 
-    public void SetBackgroundColor(Color color) {
-      background.color = color;
+    public void ApplySettings(DialogSettings settings) {
+      background.color = settings.backgroundColor;
+      frame.sprite = settings.frameSprite;
+      nextCursor.blinkSpeed = settings.cursorBlinkSpeed;
+    }
+
+    public void ShowNextCursor() {
+      nextCursor.gameObject.SetActive(true);
+    }
+
+    public void HideNextCursor() {
+      nextCursor.gameObject.SetActive(false);
     }
 
     public IEnumerator LoadPageAsync(string pageText) {
