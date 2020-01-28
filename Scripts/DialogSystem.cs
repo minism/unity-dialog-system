@@ -31,23 +31,20 @@ namespace DialogSystem {
       // Apply any preprocessing to the text.
       fullText = TextUtil.PreprocessText(fullText, settings);
 
-      // Break the page into visible chunks.
-      var chunks = dialogBox.PrepareChunks(fullText);
-      foreach (var chunkText in chunks) {
-        yield return CharacterRevealRoutine(chunkText, settings);
-      }
+      // Start the page reveal routine.
+      yield return PageRoutine(fullText, settings);
 
       dialogBox.gameObject.SetActive(false);
     }
 
-    private IEnumerator CharacterRevealRoutine(string chunkText, DialogSettings settings) {
-      // Setup the chunk and wait until TMP processes it.
-      yield return dialogBox.LoadChunkAsync(chunkText);
+    private IEnumerator PageRoutine(string pageText, DialogSettings settings) {
+      // Setup the page and wait until TMP processes it.
+      yield return dialogBox.LoadPageAsync(pageText);
 
       // Progressively reveal characters.
       Debug.Log("Revealing");
       Tuple<char, bool> result;
-      while (!(result = dialogBox.RevealCharacter()).Item2) {
+      while (!(result = dialogBox.Advance()).Item2) {
         if (!char.IsWhiteSpace(result.Item1) && settings.printSound != null) {
           printAudioSource.PlayOneShot(settings.printSound);
         }

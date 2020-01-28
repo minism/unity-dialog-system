@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ExampleController : MonoBehaviour {
+  [TextArea]
+  public string exampleText;
+
   private void Start() {
-    FindObjectOfType<DialogSystem.DialogSystem>().ShowDialog("I really enjoy bananas.");
+    FindObjectOfType<DialogSystem.DialogSystem>().ShowDialog(exampleText);
   }
 }
