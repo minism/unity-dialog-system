@@ -37,3 +37,6 @@ sysinfo.txt
 
 # OSX specific files
 .DS_Store
+
+# Dont store textmesh
+TextMesh Pro*
