@@ -39,6 +39,10 @@ namespace DialogSystem {
       ShowDialog(new string[] { text });
     }
 
+    public void ShowDialog(Dialog dialog) {
+      ShowDialog(dialog.pages, dialog.useOverrideSettings ? dialog.overrideSettings : null);
+    }
+
     public void ShowDialog(IList<string> pages, DialogSettings settings = null) {
       if (settings == null) {
         settings = baseSettings;

@@ -185,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793890048
 GameObject:
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 1804999350}
   - component: {fileID: 1804999351}
   m_Layer: 0
-  m_Name: Game Controller
+  m_Name: Example Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,7 +312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1804999351
 MonoBehaviour:
@@ -326,10 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9398a64de4d90db49b3bc934a86bae14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages:
-  - This is an example dialog that should span multiple screens for a single dialog
-    page, then wait for input.
-  - This is a second, shorter page.
+  dialogs:
+  - {fileID: 11400000, guid: 425b7480064a8492598f873788bd48ac, type: 2}
 --- !u!1001 &3760948605219188221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -375,7 +373,7 @@ PrefabInstance:
     - target: {fileID: 3760948605376495992, guid: ba0704ccee9194a448c046e5766c96f2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3760948605376495992, guid: ba0704ccee9194a448c046e5766c96f2,
         type: 3}
@@ -451,6 +449,21 @@ PrefabInstance:
         type: 3}
       propertyPath: baseSettings.confirmSound
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760948605376495996, guid: ba0704ccee9194a448c046e5766c96f2,
+        type: 3}
+      propertyPath: baseSettings.colorDictionary.Array.data[0].color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760948605376495996, guid: ba0704ccee9194a448c046e5766c96f2,
+        type: 3}
+      propertyPath: baseSettings.colorDictionary.Array.data[0].color.g
+      value: 0.06808472
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760948605376495996, guid: ba0704ccee9194a448c046e5766c96f2,
+        type: 3}
+      propertyPath: baseSettings.colorDictionary.Array.data[0].color.b
+      value: 0.1638927
       objectReference: {fileID: 0}
     - target: {fileID: 3760948605376495997, guid: ba0704ccee9194a448c046e5766c96f2,
         type: 3}

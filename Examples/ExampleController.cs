@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ExampleController : MonoBehaviour {
-  [TextArea]
-  public string[] pages;
+  public DialogSystem.Dialog[] dialogs;
 
   private void Start() {
-    FindObjectOfType<DialogSystem.DialogSystem>().ShowDialog(pages);
+    FindObjectOfType<DialogSystem.DialogSystem>().ShowDialog(dialogs[0]);
   }
 }
