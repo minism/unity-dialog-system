@@ -283,11 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e8104adb4c3714fb99c4d899beea69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
-  renderMesh: {fileID: 0}
-  pixelsPerUnit: 32
-  fixedScaleFactor: 5
-  targetViewportWorldHeight: 0
 --- !u!1 &1804999349
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +441,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760948605376495996, guid: ba0704ccee9194a448c046e5766c96f2,
+        type: 3}
+      propertyPath: baseSettings.printSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760948605376495996, guid: ba0704ccee9194a448c046e5766c96f2,
+        type: 3}
+      propertyPath: baseSettings.confirmSound
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3760948605376495997, guid: ba0704ccee9194a448c046e5766c96f2,
         type: 3}

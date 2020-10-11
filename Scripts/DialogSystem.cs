@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace DialogSystem {
 
+  /// Singleton which controls dialogs, should be one in the scene.
   public class DialogSystem : MonoBehaviour {
     public DialogSettings baseSettings;
 
@@ -13,7 +14,7 @@ namespace DialogSystem {
     public string advanceButtonName = "Jump";
 
     [Header("Dialog object references")]
-    public DialogBox dialogBox;
+    public DialogBoxUI dialogBox;
     public AudioSource audioSource;
 
     public bool IsDialogActive {

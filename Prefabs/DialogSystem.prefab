@@ -116,6 +116,7 @@ MonoBehaviour:
   baseSettings:
     backgroundColor: {r: 0, g: 0.1137255, b: 0.76470596, a: 1}
     frameSprite: {fileID: 21300000, guid: b25e8bb30a1c1ba4a9b0b231ea7af018, type: 3}
+    showFrame: 1
     printSound: {fileID: 8300000, guid: 2edeef80cdeca0c49b6a86fbf43cc87c, type: 3}
     confirmSound: {fileID: 8300000, guid: afa4bdba11696a744a9c00a044e4e5a2, type: 3}
     dialogSpeed: 0.05
@@ -125,7 +126,7 @@ MonoBehaviour:
     - text: dialog
       color: {r: 1, g: 0.59634256, b: 0.2783019, a: 0}
   advanceButtonName: Jump
-  dialogBox: {fileID: 3760948606584888654}
+  dialogBox: {fileID: 3578091852519226379}
   audioSource: {fileID: 3760948605587303830}
 --- !u!1 &3760948605587303828
 GameObject:
@@ -266,58 +267,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3760948605376495992}
     m_Modifications:
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e0d69d9137b529d4b8a7f8605ae529f5,
-        type: 2}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -1133446192388448000, guid: e0d69d9137b529d4b8a7f8605ae529f5,
-        type: 2}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 30.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492320703829465403, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1492320705468502032, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,7 +375,7 @@ PrefabInstance:
     - target: {fileID: 1492320705468502035, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
         type: 3}
       propertyPath: m_Name
-      value: DialogBox
+      value: DialogBoxUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4caca7a1efdef6a438fd3e4e8d585d67, type: 3}
@@ -436,15 +385,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2343097842053614943}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3760948606584888654 stripped
+--- !u!114 &3578091852519226379 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1492320705468502033, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
+  m_CorrespondingSourceObject: {fileID: 1235029217540288852, guid: 4caca7a1efdef6a438fd3e4e8d585d67,
     type: 3}
   m_PrefabInstance: {fileID: 2343097842053614943}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b016161f87e147141bdd9e5c83e32a3e, type: 3}
+  m_Script: {fileID: 11500000, guid: bd277a20cd50f45198b14b332da8488b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DialogSystem {
 
-  public class DialogBox : MonoBehaviour {
+  public class DialogBoxUI : MonoBehaviour {
     public TMPro.TMP_Text textMesh;
     public UnityEngine.UI.Image frame;
     public UnityEngine.UI.Image background;
