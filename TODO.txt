@@ -1,10 +1,5 @@
-- Per-dialog settings
-  - Override base settings
-  - Positioning
-- Call via scripting API or assets
-    - Other params: Position, settings
+- Override Positioning
 - Avatars
-
 - Modes:
   - Instantaneous
   - Character by character, advancable
